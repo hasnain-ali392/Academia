@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Academia | Our Mission &amp; Vision</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;family=Public+Sans:wght@300;400;500;600&amp;family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Sora:wght@400;600&amp;family=EB+Garamond:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#141E30",
+                        secondary: "#35577D",
+                        tertiary: "#999999",
+                        neutral: "#ffffff",
+                    },
+                    fontFamily: {
+                        "headline": ["Fraunces", "serif"],
+                        "body": ["Lexend", "sans-serif"],
+                        "label": ["Sora", "sans-serif"],
+                        "publicSans": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(#141E30 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+        .geometric-diamond {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+    </style>
+</head>
+<body class="bg-white text-primary font-body antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+<div class="flex justify-between items-center px-8 h-16 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-bold text-[#141E30] dark:text-white font-['Lexend'] tracking-tight">Academia</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['Lexend'] text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-[#141E30] dark:hover:text-white transition-colors duration-200" href="#">About</a>
+<a class="font-['Lexend'] text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-[#141E30] dark:hover:text-white transition-colors duration-200" href="#">Calculator</a>
+<a class="font-['Lexend'] text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-[#141E30] dark:hover:text-white transition-colors duration-200" href="#">Guidance</a>
+<a class="font-['Lexend'] text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-[#141E30] dark:hover:text-white transition-colors duration-200" href="#">Dashboard</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="bg-[#141E30] text-white px-5 py-2 rounded-lg font-['Lexend'] text-sm font-medium hover:bg-opacity-90 transition-all">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[614px] flex items-center justify-center overflow-hidden bg-white px-6">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 bg-grid-pattern"></div>
+<div class="absolute top-20 left-10 w-32 h-32 geometric-diamond bg-secondary/5 blur-xl"></div>
+<div class="absolute bottom-10 right-20 w-48 h-48 geometric-diamond bg-primary/5 blur-2xl"></div>
+<!-- 3D Icon Proxies (Subtle) -->
+<div class="absolute top-1/4 right-[15%] text-slate-200 animate-bounce" style="animation-duration: 4s;">
+<span class="material-symbols-outlined text-7xl" data-icon="school">school</span>
+</div>
+<div class="absolute bottom-1/4 left-[10%] text-slate-200 animate-pulse">
+<span class="material-symbols-outlined text-6xl" data-icon="menu_book">menu_book</span>
+</div>
+<div class="relative z-10 max-w-4xl text-center">
+<h1 class="font-headline text-5xl md:text-7xl text-primary mb-6 leading-tight">About Our Academic Platform</h1>
+<p class="text-xl md:text-2xl text-secondary max-w-2xl mx-auto leading-relaxed font-light">
+                    Empowering students and educators with precision-engineered tools for a seamless academic journey.
+                </p>
+<div class="mt-10 flex justify-center gap-4">
+<span class="w-12 h-1 bg-primary rounded-full"></span>
+<span class="w-4 h-1 bg-secondary rounded-full"></span>
+<span class="w-4 h-1 bg-tertiary/30 rounded-full"></span>
+</div>
+</div>
+</section>
+<!-- Our Mission Section -->
+<section class="py-24 px-8 bg-slate-50">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-2xl transform group-hover:rotate-2 transition-transform"></div>
+<img alt="Student collaboration" class="relative rounded-xl shadow-2xl w-full object-cover aspect-[4/3]" data-alt="Students working together on laptops in library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TfvVbgx2g3jUKVczB0ArE-j1gjW-MGomXMhmh1NO8NETlrniK7fXRVSznl0aYsmp6idvbi-Mb7eHOUbHRvnnZzB00yPlH47QSfJsYHSjA69mrwQJwSxmA0OUTOmPFuN0EOdi8XFsN7YKAAKMwNoNXrW2VMwjWTAboj9ZyPkR2DpunK9euqP7TV_sgJqbU_E7-Zx59RR90Zb0G8smb-zRm5i1AbTl69IQcJEpLhwMAAsaMnT1iJO-QO1vKT9ghBojokvXYh2I8uY0"/>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-8">
+<div class="space-y-4">
+<span class="font-label text-sm uppercase tracking-widest text-secondary font-bold">Our Mission</span>
+<h2 class="font-headline text-4xl text-primary">Academic Success, Simplified with Precision.</h2>
+</div>
+<p class="text-lg text-slate-600 leading-relaxed font-body">
+                        Academia was founded on the belief that data should empower, not overwhelm. Our mission is to simplify the complex academic landscape by providing students with precision tools—from GPA tracking to AI-driven career guidance—enabling them to focus on what truly matters: learning and growth.
+                    </p>
+<div class="grid grid-cols-2 gap-6 pt-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+<div>
+<h4 class="font-bold text-primary">Data Integrity</h4>
+<p class="text-sm text-slate-500">Accurate calculations every time.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<h4 class="font-bold text-primary">Smart Insights</h4>
+<p class="text-sm text-slate-500">AI-powered future forecasting.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Overview Section -->
+<section class="py-24 px-8 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-headline text-4xl text-primary mb-4">The Pillars of Academia</h2>
+<p class="text-secondary max-w-xl mx-auto">Modern solutions for modern students, integrated into one seamless platform.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded-lg bg-primary text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+</div>
+<h3 class="font-headline text-xl text-primary">GPA/CGPA Tool</h3>
+<p class="text-sm text-slate-500 leading-relaxed">Calculate and track your academic performance with pinpoint accuracy across multiple semesters.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded-lg bg-secondary text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<h3 class="font-headline text-xl text-primary">AI Guidance</h3>
+<p class="text-sm text-slate-500 leading-relaxed">Personalized career paths and course recommendations based on your unique academic data.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded-lg bg-tertiary/20 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="rule">rule</span>
+</div>
+<h3 class="font-headline text-xl text-primary">Result Checking</h3>
+<p class="text-sm text-slate-500 leading-relaxed">Instant access to verified examination results with detailed breakdown and performance metrics.</p>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-slate-100 flex flex-col gap-4 group">
+<div class="w-12 h-12 rounded-lg bg-slate-100 text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+</div>
+<h3 class="font-headline text-xl text-primary">Performance Stats</h3>
+<p class="text-sm text-slate-500 leading-relaxed">Visualize your progress through interactive charts and historical comparison data points.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Vision Section -->
+<section class="py-32 px-8 bg-[#141E30] text-white relative">
+<div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
+<span class="font-label text-sm uppercase tracking-[0.3em] text-tertiary">Our Vision</span>
+<blockquote class="font-headline text-4xl md:text-5xl italic leading-tight">
+                    "To become the global standard for academic data management, where every student possesses the clarity to navigate their future with absolute confidence."
+                </blockquote>
+<div class="pt-8">
+<p class="font-label text-lg font-semibold">— The Academia Team</p>
+<p class="text-tertiary text-sm mt-1">Building the future of education together.</p>
+</div>
+<div class="pt-12">
+<button class="px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-slate-100 transition-colors inline-flex items-center gap-2">
+                        Join the Movement
+                        <span class="material-symbols-outlined" data-icon="trending_flat">trending_flat</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+<div class="w-full py-8 px-8 flex flex-col md:flex-row justify-between items-center gap-4 max-w-7xl mx-auto">
+<div class="flex flex-col gap-2">
+<div class="font-['Lexend'] font-semibold text-[#141E30] dark:text-white">Academia</div>
+<p class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400">© 2024 Academia Platform. All rights reserved.</p>
+</div>
+<nav class="flex gap-6">
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:underline decoration-[#35577D] transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:underline decoration-[#35577D] transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:underline decoration-[#35577D] transition-all opacity-80 hover:opacity-100" href="#">Contact Us</a>
+<a class="font-['Public_Sans'] text-xs text-slate-500 dark:text-slate-400 hover:underline decoration-[#35577D] transition-all opacity-80 hover:opacity-100" href="#">Help Center</a>
+</nav>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-[#141E30] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</a>
+<a class="text-slate-400 hover:text-[#141E30] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
