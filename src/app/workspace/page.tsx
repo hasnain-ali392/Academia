@@ -126,7 +126,7 @@ export default function WorkspacePage() {
                   </div>
                 </CardHeader>
                 <CardContent className="p-8 prose prose-slate max-w-none prose-pre:bg-stitch-surface prose-pre:border prose-pre:border-stitch-border">
-                  <React-Markdown>{currentProject.result}</React-Markdown>
+                  <ReactMarkdown>{currentProject.result}</ReactMarkdown>
                 </CardContent>
               </Card>
             </motion.div>
