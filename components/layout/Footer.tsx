@@ -1,66 +1,64 @@
 'use client'
+import Link from 'next/link'
 import FadeUp from '@/components/motion/FadeUp'
-import StaggerGroup, { staggerItem } from '@/components/motion/StaggerGroup'
-import { motion } from 'framer-motion'
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-ag-mist/10 bg-ag-void relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-ag-lift/5 rounded-full blur-3xl -z-0"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        <StaggerGroup className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-slate-50 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <FadeUp delay={0.1} className="col-span-1 md:col-span-1">
+            <div className="flex flex-col gap-4">
+              <div className="text-2xl font-display font-bold text-primary tracking-tight">Academia</div>
+              <p className="text-slate-500 text-sm leading-relaxed font-body">
+                Empowering students with precision tools and AI-driven insights for a smarter academic journey.
+              </p>
+            </div>
+          </FadeUp>
           
-          <motion.div variants={staggerItem} className="col-span-2 md:col-span-1">
-            <div className="text-xl font-display font-bold text-ag-lift tracking-widest uppercase mb-4">Antigravity</div>
-            <p className="text-ag-mist/60 text-sm leading-relaxed">
-              Defy limits. Gravity-free performance engineered for seamless calculation and infinite scalability in the academic cosmos.
-            </p>
-          </motion.div>
-          
-          <motion.div variants={staggerItem}>
-            <h5 className="text-white font-bold text-sm mb-4">Core Systems</h5>
-            <ul className="space-y-2">
-              {['Launch Sequence', 'Orbit Tracker', 'Telemetrics'].map(link => (
-                <li key={link}>
-                  <a className="text-ag-mist/50 hover:text-ag-lift transition-colors text-sm" href="#">{link}</a>
-                </li>
-              ))}
+          <FadeUp delay={0.2} className="col-span-1">
+            <h4 className="font-display font-bold text-primary mb-6 text-sm uppercase tracking-widest">Platform</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><Link href="#calculator" className="hover:text-primary transition-colors">GPA Calculator</Link></li>
+              <li><Link href="#predictor" className="hover:text-primary transition-colors">CGPA Predictor</Link></li>
+              <li><Link href="#guidance" className="hover:text-primary transition-colors">Career Guidance</Link></li>
+              <li><Link href="#results" className="hover:text-primary transition-colors">Result Checking</Link></li>
             </ul>
-          </motion.div>
-          
-          <motion.div variants={staggerItem}>
-            <h5 className="text-white font-bold text-sm mb-4">Operations</h5>
-            <ul className="space-y-2">
-              {['Command Center', 'Crew Members', 'Directives'].map(link => (
-                <li key={link}>
-                  <a className="text-ag-mist/50 hover:text-ag-lift transition-colors text-sm" href="#">{link}</a>
-                </li>
-              ))}
+          </FadeUp>
+
+          <FadeUp delay={0.3} className="col-span-1">
+            <h4 className="font-display font-bold text-primary mb-6 text-sm uppercase tracking-widest">Company</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="#careers" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="#press" className="hover:text-primary transition-colors">Press</Link></li>
+              <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
-          </motion.div>
-          
-          <motion.div variants={staggerItem}>
-            <h5 className="text-white font-bold text-sm mb-4">Transmissions</h5>
-            <ul className="space-y-2">
-              {['Deep Space', 'Subspace Comm', 'Distress Signal'].map(link => (
-                <li key={link}>
-                  <a className="text-ag-mist/50 hover:text-ag-lift transition-colors text-sm" href="#">{link}</a>
-                </li>
-              ))}
+          </FadeUp>
+
+          <FadeUp delay={0.4} className="col-span-1">
+            <h4 className="font-display font-bold text-primary mb-6 text-sm uppercase tracking-widest">Legal</h4>
+            <ul className="space-y-4 text-sm text-slate-500">
+              <li><Link href="#privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="#help" className="hover:text-primary transition-colors">Help Center</Link></li>
             </ul>
-          </motion.div>
-          
-        </StaggerGroup>
-        
-        <FadeUp delay={0.4} className="pt-8 border-t border-ag-mist/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-ag-mist/40 text-sm">© 2026 Antigravity Systems. Zero constraints.</p>
+          </FadeUp>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="font-body text-xs text-slate-400">
+            © 2024 Academia Platform. All rights reserved.
+          </p>
           <div className="flex gap-6">
-            <a className="text-ag-mist/40 hover:text-ag-lift transition-colors text-xs" href="#">Protocols</a>
-            <a className="text-ag-mist/40 hover:text-ag-lift transition-colors text-xs" href="#">Privacy</a>
-            <a className="text-ag-mist/40 hover:text-ag-lift transition-colors text-xs" href="#">Cookies</a>
+             <a href="#" className="text-slate-400 hover:text-primary transition-colors">
+               <span className="material-symbols-outlined">share</span>
+             </a>
+             <a href="#" className="text-slate-400 hover:text-primary transition-colors">
+               <span className="material-symbols-outlined">language</span>
+             </a>
           </div>
-        </FadeUp>
+        </div>
       </div>
     </footer>
   )

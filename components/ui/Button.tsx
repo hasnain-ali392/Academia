@@ -4,41 +4,45 @@ import MagneticWrapper from '@/components/motion/MagneticWrapper'
 
 type ButtonProps = {
   children: React.ReactNode
-  variant?: 'primary' | 'ghost' | 'outline'
+  variant?: 'primary' | 'ghost' | 'outline' | 'secondary'
   icon?: React.ReactNode
   onClick?: () => void
+  disabled?: boolean
+  type?: 'button' | 'submit' | 'reset'
   className?: string
 }
 
-export default function Button({ children, variant = 'primary', icon, onClick, className = '' }: ButtonProps) {
+export default function Button({ 
+  children, 
+  variant = 'primary', 
+  icon, 
+  onClick, 
+  disabled = false,
+  type = 'button',
+  className = '' 
+}: ButtonProps) {
   const styles = {
-    primary: 'bg-ag-lift text-ag-void font-bold hover:bg-ag-lift/90',
-    ghost:   'bg-transparent text-ag-mist border border-ag-mist/20 hover:border-ag-lift hover:text-ag-lift',
-    outline: 'bg-transparent text-ag-lift border border-ag-lift hover:bg-ag-lift/10',
+    primary:   'bg-primary text-white border border-primary hover:bg-[#1c2a42] shadow-lg shadow-primary/10',
+    secondary: 'bg-secondary text-white border border-secondary hover:bg-secondary/90 shadow-lg shadow-secondary/10',
+    ghost:     'bg-transparent text-slate-600 hover:text-primary hover:bg-slate-50',
+    outline:   'bg-transparent text-primary border-2 border-primary/10 hover:border-primary',
   }
 
   return (
     <MagneticWrapper>
       <motion.button
+        type={type}
+        disabled={disabled}
         onClick={onClick}
-        className={`relative overflow-hidden flex items-center gap-2 px-7 py-3.5 rounded-full text-sm transition-colors duration-300 ${styles[variant]} ${className}`}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.96 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+        className={`relative overflow-hidden flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 font-display ${styles[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'active:scale-[0.98]'}`}
+        whileHover={!disabled ? { y: -2 } : {}}
       >
-        {/* Ripple overlay */}
-        <motion.span
-          className="absolute inset-0 bg-white/10 rounded-full"
-          initial={{ scale: 0, opacity: 1 }}
-          whileTap={{ scale: 2.5, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        />
-        <span className="relative z-10 font-medium">{children}</span>
+        <span className="relative z-10">{children}</span>
         {icon && (
           <motion.span
             className="inline-flex relative z-10"
             initial={{ x: 0 }}
-            whileHover={{ x: 4 }}
+            whileHover={{ x: 3 }}
             transition={{ type: 'spring', stiffness: 400 }}
           >
             {icon}

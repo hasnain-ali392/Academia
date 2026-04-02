@@ -8,14 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'ag-void': '#0A0A0F',
-        'ag-neutral': '#1E1E2A',
-        'ag-mist': '#E8E8F0',
-        'ag-lift': '#6EFFC4',
+        'primary': '#141E30',
+        'secondary': '#35577D',
+        'accent': '#A8BFCF',
+        'tertiary': '#999999',
+        'neutral': '#ffffff',
       },
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        display: ['Outfit', 'sans-serif'],
+        body: ['var(--font-public-sans)', 'sans-serif'],
+        display: ['var(--font-lexend)', 'sans-serif'],
+        headline: ['var(--font-fraunces)', 'serif'],
+        label: ['var(--font-sora)', 'sans-serif'],
+        inter: ['var(--font-inter)', 'sans-serif'],
       },
     },
   },

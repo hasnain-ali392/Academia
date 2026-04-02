@@ -1,82 +1,82 @@
 'use client'
 import StaggerGroup, { staggerItem } from '@/components/motion/StaggerGroup'
 import { motion } from 'framer-motion'
-import { Calculator, BarChart3, Lightbulb, CheckCircle2 } from 'lucide-react'
+import FadeUp from '@/components/motion/FadeUp'
 
 export default function Features() {
   const features = [
     {
-      title: 'Telemetry Computation',
-      desc: 'Calculate your mission grade point average instantly through our zero-latency metrics processing platform.',
-      icon: <Calculator className="w-6 h-6" />,
-      link: 'Initiate Sync'
+      title: 'GPA/CGPA Tool',
+      desc: 'Calculate and track your academic performance with pinpoint accuracy across multiple semesters.',
+      icon: 'calculate',
+      color: 'bg-primary'
     },
     {
-      title: 'Orbit Tracking (CGPA)',
-      desc: 'Map your compounding vector across multiple orbital periods to define your exact trajectory.',
-      icon: <BarChart3 className="w-6 h-6" />,
-      link: 'View Trajectory'
+      title: 'AI Guidance',
+      desc: 'Personalized career paths and course recommendations based on your unique academic data.',
+      icon: 'psychology',
+      color: 'bg-secondary'
     },
     {
-      title: 'Guidance Systems',
-      desc: 'Algorithmic course corrections dynamically modeled to align you with target orbit classifications.',
-      icon: <Lightbulb className="w-6 h-6" />,
-      link: 'Align Vectors'
+      title: 'Result Checking',
+      desc: 'Instant access to verified examination results with detailed breakdown and performance metrics.',
+      icon: 'rule',
+      color: 'bg-accent/40 text-primary'
     },
     {
-      title: 'Data Validation',
-      desc: 'Seamlessly verify structural integrity of all operational metrics in a unified command center.',
-      icon: <CheckCircle2 className="w-6 h-6" />,
-      link: 'Run Diagnostics'
+      title: 'Performance Stats',
+      desc: 'Visualize your progress through interactive charts and historical comparison data points.',
+      icon: 'query_stats',
+      color: 'bg-slate-100 text-primary'
     }
   ]
 
   return (
-    <section id="features" className="py-24 bg-ag-void relative overflow-hidden">
-      {/* Background Depth */}
-      <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-10 mix-blend-overlay pointer-events-none"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-ag-lift/5 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <section id="features" className="section-padding bg-slate-50 relative overflow-hidden">
+      {/* Background Depth Patterns */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute h-full w-full opacity-[0.03] dot-pattern top-0 left-0 pointer-events-none"></div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
+        <div className="text-center mb-16">
+          <FadeUp>
+            <h2 className="font-headline text-3xl md:text-4xl text-primary font-bold mb-4 tracking-tight">The Pillars of Academia</h2>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <p className="text-slate-400 max-w-xl mx-auto font-body text-[15px] leading-relaxed">
+              Modern solutions for modern students, integrated into one seamless platform.
+            </p>
+          </FadeUp>
+        </div>
+
         <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, idx) => (
             <motion.div 
               key={idx}
               variants={staggerItem}
-              className="glass rounded-2xl p-8 cursor-pointer group border border-ag-mist/10"
+              className="glass p-6 rounded-2xl cursor-pointer group border border-slate-100 hover:border-slate-200 transition-all duration-500 shadow-sm"
               whileHover={{
-                y: -8,
-                boxShadow: '0 24px 80px rgba(110,255,196,0.15)',
-                borderColor: 'rgba(110,255,196,0.3)',
+                y: -10,
+                boxShadow: '0 20px 40px rgba(20, 30, 48, 0.05)',
               }}
               whileTap={{ scale: 0.98 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
             >
               <motion.div 
-                className="w-12 h-12 rounded-xl bg-ag-lift/10 flex items-center justify-center mb-6 text-ag-lift"
-                whileHover={{ rotate: 90 }}
-                transition={{ type: 'spring', stiffness: 200 }}
+                className={`w-12 h-12 rounded-lg ${feature.color} text-white flex items-center justify-center mb-6 shadow-md shadow-primary/5 transition-transform group-hover:scale-110 group-hover:rotate-12`}
               >
-                {feature.icon}
+                <span className="material-symbols-outlined text-[28px]">{feature.icon}</span>
               </motion.div>
-              <h3 className="font-display font-bold text-white text-xl mb-3 tracking-wide">{feature.title}</h3>
-              <p className="text-ag-mist/60 text-sm mb-6 leading-relaxed min-h-[80px]">
+              <h3 className="font-headline font-bold text-primary text-lg mb-3 tracking-tight group-hover:text-secondary transition-colors">{feature.title}</h3>
+              <p className="text-slate-500 text-[13px] mb-6 leading-relaxed min-h-[64px] font-body opacity-80">
                 {feature.desc}
               </p>
-              <motion.a 
-                href="#"
-                className="relative inline-flex items-center text-ag-lift font-bold text-sm tracking-widest uppercase"
+              <motion.div 
+                className="flex items-center gap-2 text-secondary font-display font-bold text-[11px] tracking-[0.1em] uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0"
               >
-                {feature.link}
-                <motion.span 
-                  className="ml-2 inline-block"
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 5 }}
-                >
-                  →
-                </motion.span>
-              </motion.a>
+                Explore Tool
+                <span className="material-symbols-outlined text-xs">trending_flat</span>
+              </motion.div>
             </motion.div>
           ))}
         </StaggerGroup>

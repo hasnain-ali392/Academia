@@ -1,59 +1,91 @@
 'use client'
-import TextReveal from '@/components/motion/TextReveal'
+import { motion } from 'framer-motion'
 import FadeUp from '@/components/motion/FadeUp'
 import Button from '@/components/ui/Button'
-import { Orbit, Activity } from 'lucide-react'
-import { motion } from 'framer-motion'
-import ParallaxLayer from '@/components/motion/ParallaxLayer'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ag-void pt-20">
-      {/* Background Elements */}
-      <div className="absolute inset-0 noise opacity-20 Mix-blend-overlay"></div>
+    <section className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-white">
+      {/* Background Patterns */}
+      <div className="absolute inset-0 pattern-grid-lg opacity-[0.03]"></div>
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-50 to-transparent"></div>
       
-      {/* Floating 3D/Glow Icons */}
-      <div className="absolute top-32 left-[15%] animate-float pointer-events-none hidden lg:block">
-        <div className="w-16 h-16 bg-ag-lift/10 text-ag-lift rounded-xl flex items-center justify-center animate-glow rotate-12 glass">
-          <Orbit className="w-8 h-8" />
-        </div>
-      </div>
-      
-      <div className="absolute top-48 right-[15%] animate-float pointer-events-none hidden lg:block" style={{ animationDelay: '2s' }}>
-        <div className="w-20 h-20 bg-ag-void border border-ag-lift/20 text-ag-lift rounded-2xl flex items-center justify-center animate-glow -rotate-12 glass">
-          <Activity className="w-10 h-10" />
-        </div>
+      {/* 3D Assets Layer */}
+      <div className="absolute inset-0 pointer-events-none animate-float hidden lg:block">
+        <motion.img 
+          src="/assets/books.png" 
+          alt="3D Books"
+          className="absolute top-[15%] left-[8%] w-56 h-auto opacity-80 rotate-[-15deg] drop-shadow-2xl"
+          initial={{ y: 20, rotate: -20 }}
+          animate={{ y: -20, rotate: -10 }}
+          transition={{ duration: 6, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+        />
+        <motion.img 
+          src="/assets/cap.png" 
+          alt="3D Graduation Cap"
+          className="absolute bottom-[20%] left-[12%] w-48 h-auto opacity-70 rotate-[10deg] drop-shadow-xl"
+          initial={{ y: -15, rotate: 15 }}
+          animate={{ y: 15, rotate: 5 }}
+          transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut', delay: 1 }}
+        />
+        <motion.img 
+          src="/assets/laptop.png" 
+          alt="3D Student Laptop"
+          className="absolute top-[18%] right-[10%] w-60 h-auto opacity-80 rotate-[12deg] drop-shadow-2xl"
+          initial={{ y: -25, rotate: 8 }}
+          animate={{ y: 25, rotate: 16 }}
+          transition={{ duration: 7, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut', delay: 0.5 }}
+        />
       </div>
 
-      {/* Shapes */}
-      <div className="absolute top-1/2 -left-12 w-48 h-48 bg-ag-lift/10 rounded-3xl rotate-45 backdrop-blur-md -z-10 animate-orbit"></div>
-      <div className="absolute bottom-20 left-1/4 w-32 h-32 border-2 border-ag-lift/20 rounded-full -z-10 animate-float"></div>
-      
-      <ParallaxLayer speed={0.2} className="relative z-10 w-full max-w-7xl mx-auto px-6 text-center">
-         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-         >
-           <TextReveal 
-             text="Defy Gravity. Accelerate Performance." 
-             className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white max-w-5xl mx-auto leading-tight mb-8 justify-center text-glow"
-           />
-         </motion.div>
-         
-         <FadeUp delay={0.6}>
-           <p className="text-lg md:text-xl text-ag-mist/70 max-w-2xl mx-auto mb-12 font-body">
-             The cutting-edge telemetry engine for calculating, analyzing, and projecting your academic trajectory in absolute zero-gravity.
-           </p>
-         </FadeUp>
-         
-         <FadeUp delay={0.8}>
-           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-             <Button variant="primary">Launch Sequence</Button>
-             <Button variant="ghost">View Schematics</Button>
-           </div>
-         </FadeUp>
-      </ParallaxLayer>
+      {/* 2D Geometric Elements */}
+      <div className="absolute top-[10%] left-[20%] w-12 h-12 border-2 border-secondary/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-[25%] right-[22%] w-16 h-16 border border-primary/5 rounded-3xl rotate-45 animate-bounce" style={{ animationDuration: '6s' }}></div>
+      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-accent/20 rounded-full animate-ping"></div>
+
+      <div className="max-w-5xl mx-auto px-8 relative z-10 text-center">
+        <FadeUp>
+          <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-[11px] font-bold tracking-[0.2em] uppercase mb-8 border border-primary/10 shadow-sm transition-all hover:bg-primary hover:text-white">
+            <span className="material-symbols-outlined text-sm">verified</span>
+            Unified Academic Intelligence
+          </div>
+        </FadeUp>
+        
+        <FadeUp delay={0.1}>
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl text-primary font-bold mb-8 leading-[1.1] tracking-tight">
+            The Next Generation of <br />
+            <span className="text-secondary italic underline decoration-secondary/15 underline-offset-[12px]">Academic Tracking.</span>
+          </h1>
+        </FadeUp>
+        
+        <FadeUp delay={0.2}>
+          <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-body leading-relaxed">
+             Empowering over 50,000 students worldwide with precision-crafted tools for GPA management, career forecasting, and data-driven success.
+          </p>
+        </FadeUp>
+
+        <FadeUp delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/signup">
+            <Button variant="primary" className="px-8 py-3.5 text-sm shadow-xl shadow-primary/20">
+               Initialize Experience
+               <span className="material-symbols-outlined text-lg">trending_up</span>
+            </Button>
+          </Link>
+          <Link href="/signin">
+            <Button variant="outline" className="px-8 py-3.5 text-sm border-slate-200 text-slate-600 hover:bg-slate-50">
+               Access Member Portal
+            </Button>
+          </Link>
+        </FadeUp>
+
+        {/* Subtext Dots */}
+        <div className="mt-16 flex justify-center gap-1.5">
+           <div className="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+           <div className="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+           <div className="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
+        </div>
+      </div>
     </section>
   )
 }

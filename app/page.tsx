@@ -8,7 +8,7 @@ import CTA from '@/components/sections/CTA'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-ag-void selection:bg-ag-lift/30 sm:overflow-x-hidden">
+    <div className="min-h-screen bg-white sm:overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
