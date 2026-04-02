@@ -1,79 +1,112 @@
-# Academia - Smart Academic Tools for Students
+# Academia Frontend (Stitch Design System)
 
-A production-grade Next.js 14+ application built with Tailwind CSS v4, Framer Motion, and Lucide React, following the Stitch design system.
+Academia is a Next.js 14 application built to provide smart academic tools for students. This repository has been completely overhauled to strictly follow the **Stitch Design Token System**.
 
-## 🚀 Tech Stack
+## Tech Stack Overview
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript (Strict)
+- **Styling**: Tailwind CSS 4 with CSS Custom Properties
+- **Base Components**: Custom primitive library building on Tailwind (`src/components/ui/`)
+- **Animations**: Framer Motion (page transitions, hover states)
+- **Icons**: Lucide React
+- **Fonts**: `next/font/google` (Fraunces & Public Sans)
 
-- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) (Token-based)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Type Safety**: [TypeScript](https://www.typescriptlang.org/)
+---
 
-## 🛠️ Getting Started
-
-### Prerequisites
-- Node.js 18.x or later
-- npm or pnpm
+## Getting Started
 
 ### Installation
 ```bash
-# Clone the repository and enter the directory
-cd academia-app
-
-# Install dependencies
 npm install
+```
 
-# Start the development server
+### Running Locally
+```bash
 npm run dev
 ```
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-The app will be available at `http://localhost:3000`.
+---
 
-## 🎨 Design System (Tailwind CSS v4)
+## Design Token Guide
 
-This project uses the next-generation **Tailwind CSS v4** engine. Key features include:
+All design aesthetics (Colors, Border Radius, Shadow) are controlled by absolute tokens derived from the `stitch_assets/landing_page` constraints.
 
-- **CSS Variables First**: All themes are defined using the `@theme` directive in `src/app/globals.css`.
-- **Hardware Accelerated**: Optimized for modern browser rendering.
-- **Micro-interactions**: Embedded Framer Motion transitions for every page entry via `PageWrapper`.
+**How to update colors:**
+Never hardcode hex values inside React components! Instead:
+1. Open `src/app/globals.css`.
+2. Locate the `:root` pseudo-class.
+3. Update the value (e.g., `--stitch-primary: #141E30;`).
+4. Consume it via standard Tailwind UI classes everywhere (e.g., `bg-stitch-primary`).
 
-### Modern Icon Strategy
-Due to the removal of branded icons in `lucide-react` v1.0+, we use:
-- `Code` for **Github**
-- `Send` for **Twitter/X**
-- `MessageSquare` for **Discord**
-- Custom SVG paths for high-fidelity brand representations (e.g., Google login).
+---
 
-## 📄 Architecture & Components
+## How to Add a New Page (Future-Page Contract)
 
-### `Button` Component (Enhanced)
-The UI `Button` supports the `asChild` pattern, allowing it to render as a Next.js `Link` while maintaining all design system styles:
+Creating new routes requires 0 setup other than creating the page file:
+
+1. Create a new folder and page file: `src/app/[new-route]/page.tsx`
+2. Wrap your layout in `<PageWrapper>` for native page-switch animations.
+3. Utilize existing UI elements from `src/components/ui/`.
+4. Add the route to the `NAV_LINKS` array inside `src/lib/constants.ts` to automatically populate navigation.
+5. Export as a default React component! Active states in `Header.tsx` will map instantly to your new route.
+
+---
+
+## How to Add a New UI Component
+
+Keep elements semantic, typed, and reusable via the `cn()` merge function. Example setup:
+
 ```tsx
-<Button asChild variant="primary">
-  <Link href="/about">Learn More</Link>
-</Button>
+import { cn } from "@/lib/utils";
+import * as React from "react";
+
+interface MyComponentProps extends React.HTMLAttributes<HTMLDivElement> {
+  // custom props
+}
+
+export const MyComponent = React.forwardRef<HTMLDivElement, MyComponentProps>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      // ONLY consume stitch tailwind bindings to ensure consistent aesthetics
+      className={cn("bg-stitch-surface border-stitch-border", className)}
+      {...props}
+    />
+  )
+)
+MyComponent.displayName = "MyComponent"
 ```
 
-### Layout Components
-- **Header**: Responsive with glassmorphism and mobile drawer.
-- **Footer**: Multi-column with social links and simplified site map.
-- **PageWrapper**: Orchestrates `framer-motion` entry/exit animations.
+---
 
-## 📂 Folder Structure
+## Folder Structure
 
 ```
-/src
-  /app           # routes, layout, global styles
-  /components
-    /layout      # Navigation, Footer, PageWrapper
-    /sections    # Page sections (Hero, Features, etc.)
-    /ui          # Atomic components (Button, Input, Card)
-  /lib           # cn() utility, constants, types
+├── public/                 # Static assets
+├── src/
+│   ├── app/                # App Router Routes
+│   │   ├── about/page.tsx  # About Route
+│   │   ├── calculator/page.tsx # Interactive Calculator Route
+│   │   ├── contact/page.tsx # Contact Form Route
+│   │   ├── globals.css     # 🔑 Source of truth CSS Custom Properties
+│   │   ├── layout.tsx      # Font provider & Global HTML layout
+│   │   └── page.tsx        # Home Landing Page
+│   │
+│   ├── components/
+│   │   ├── layout/         # Structural wrappers
+│   │   │   ├── Header.tsx  # Responsive navigation 
+│   │   │   └── PageWrapper.tsx # Framer Motion logic
+│   │   └── ui/             # Core interface primitives
+│   │       ├── Button.tsx
+│   │       ├── Card.tsx
+│   │       ├── Input.tsx
+│   │       └── Textarea.tsx
+│   │
+│   └── lib/                # Utilities
+│       ├── constants.ts    # Global vars i.e. NAV_LINKS
+│       └── utils.ts        # cn() classname merger
+│
+├── tailwind.config.ts      # Tailwind Token Extender
+└── README.md
 ```
-
-## ✅ Final Verification
-- [x] **Production Build**: Successfully passed `npm run build`.
-- [x] **Type Safety**: Full TypeScript coverage for component props and animations.
-- [x] **Responsiveness**: Mobile-first design verified on all core pages.
-- [x] **Stitch Fidelity**: 100% adherence to provided design assets.
