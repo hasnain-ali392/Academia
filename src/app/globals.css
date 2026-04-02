@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-display: "Outfit", "sans-serif";
+
+  --color-stitch-primary: #141E30;
+  --color-stitch-secondary: #35577D;
+  --color-stitch-accent: #00D2FF;
+  --color-stitch-tertiary: #91EAE4;
+  --color-stitch-surface: #F8FAFC;
+  --color-stitch-surface-alt: #FFFFFF;
+  --color-stitch-text: #0F172A;
+  --color-stitch-text-muted: #64748B;
+  --color-stitch-border: rgba(148, 163, 184, 0.1);
+  --color-stitch-error: #EF4444;
+  --color-stitch-success: #10B981;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 9999px;
+
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-3d: 0 10px 20px rgba(20, 30, 48, 0.15), 0 6px 6px rgba(20, 30, 48, 0.1);
+
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@layer base {
+  body {
+    @apply bg-stitch-surface text-stitch-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-stitch-primary;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-stitch-lg;
+  }
+  
+  .tactile-button {
+    @apply transition-all duration-200 active:translate-y-[1px] active:scale-[0.98];
+  }
+}
