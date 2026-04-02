@@ -1,7 +1,6 @@
 "use client";
-
 import * as React from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { motion, useSpring, useTransform } from "framer-motion";
 import { type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,18 +13,19 @@ interface StatsCardProps {
 }
 
 export function StatsCard({ label, value, icon: Icon, description, color = "primary" }: StatsCardProps) {
-  const { number } = useSpring({
-    from: { number: 0 },
-    number: value,
-    delay: 200,
-    config: { mass: 1, tension: 20, friction: 10 },
+  // Use Framer Motion for the spring animation
+  const springValue = useSpring(0, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
   });
 
-  const colorVariants = {
-    primary: "bg-stitch-primary text-white",
-    secondary: "bg-stitch-secondary text-white",
-    accent: "bg-stitch-accent text-stitch-primary",
-  };
+  // Transform the spring value to a formatted integer
+  const displayValue = useTransform(springValue, (latest) => Math.floor(latest).toLocaleString());
+
+  React.useEffect(() => {
+    springValue.set(value);
+  }, [value, springValue]);
 
   const bgVariants = {
     primary: "bg-stitch-primary/10 text-stitch-primary",
@@ -39,9 +39,9 @@ export function StatsCard({ label, value, icon: Icon, description, color = "prim
         <div className={cn("p-3 rounded-stitch transition-transform group-hover:rotate-12", bgVariants[color])}>
           <Icon size={24} />
         </div>
-        <animated.span className="text-3xl font-display font-bold text-stitch-primary">
-          {number.to((n) => Math.floor(n))}
-        </animated.span>
+        <motion.span className="text-3xl font-display font-bold text-stitch-primary">
+          {displayValue}
+        </motion.span>
       </div>
       <div>
         <p className="text-sm font-semibold text-stitch-primary mb-1 uppercase tracking-wider">

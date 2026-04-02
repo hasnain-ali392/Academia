@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Reorder, motion, AnimatePresence } from "framer-motion";
 import { GripVertical, Layers, ArrowDown, Send, FileCheck, Loader2 } from "lucide-react";
-import { useAppStore } from "@/lib/store";
+import { useAppStore, type Asset } from "@/lib/store";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import toast from "react-hot-toast";
@@ -46,7 +46,7 @@ export function WorkflowBuilder() {
   // Map IDs to actual Asset objects for Reorder component
   const orderedAssets = currentProject.workflow
     .map(id => currentProject.assets.find(a => a.id === id))
-    .filter(Boolean);
+    .filter((asset): asset is Asset => !!asset);
 
   return (
     <div className="space-y-8 mt-12 bg-stitch-surface/50 rounded-stitch-xl p-8 border border-stitch-border">
