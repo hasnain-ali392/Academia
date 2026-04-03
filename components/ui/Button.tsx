@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import MagneticWrapper from '@/components/motion/MagneticWrapper'
 
 type ButtonProps = {
   children: React.ReactNode
@@ -29,26 +28,24 @@ export default function Button({
   }
 
   return (
-    <MagneticWrapper>
-      <motion.button
-        type={type}
-        disabled={disabled}
-        onClick={onClick}
-        className={`relative overflow-hidden flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg text-sm font-semibold transition-all duration-300 font-display ${styles[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'active:scale-[0.98]'}`}
-        whileHover={!disabled ? { y: -2 } : {}}
-      >
-        <span className="relative z-10">{children}</span>
-        {icon && (
-          <motion.span
-            className="inline-flex relative z-10"
-            initial={{ x: 0 }}
-            whileHover={{ x: 3 }}
-            transition={{ type: 'spring', stiffness: 400 }}
-          >
-            {icon}
-          </motion.span>
-        )}
-      </motion.button>
-    </MagneticWrapper>
+    <motion.button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={`relative overflow-hidden flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-all duration-300 font-display ${styles[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'active:scale-[0.98]'}`}
+      whileHover={!disabled ? { y: -1.5, shadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' } : {}}
+    >
+      <span className="relative z-10">{children}</span>
+      {icon && (
+        <motion.span
+          className="inline-flex relative z-10"
+          initial={{ x: 0 }}
+          whileHover={{ x: 2 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+        >
+          {icon}
+        </motion.span>
+      )}
+    </motion.button>
   )
 }

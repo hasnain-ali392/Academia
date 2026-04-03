@@ -1,91 +1,83 @@
 'use client'
 import { motion } from 'framer-motion'
-import FadeUp from '@/components/motion/FadeUp'
 import Button from '@/components/ui/Button'
+import FadeUp from '@/components/motion/FadeUp'
 import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-white">
-      {/* Background Patterns */}
-      <div className="absolute inset-0 pattern-grid-lg opacity-[0.03]"></div>
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-50 to-transparent"></div>
-      
-      {/* 3D Assets Layer */}
-      <div className="absolute inset-0 pointer-events-none animate-float hidden lg:block">
-        <motion.img 
-          src="/assets/books.png" 
-          alt="3D Books"
-          className="absolute top-[15%] left-[8%] w-56 h-auto opacity-80 rotate-[-15deg] drop-shadow-2xl"
-          initial={{ y: 20, rotate: -20 }}
-          animate={{ y: -20, rotate: -10 }}
-          transition={{ duration: 6, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-28 pb-20 px-8 overflow-hidden bg-white">
+      {/* Dynamic Background Patterns */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
+        <div className="absolute inset-0 pattern-grid-lg opacity-[0.02]"></div>
+        
+        {/* Animated Geometrical Components */}
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-secondary/10 rounded-full blur-[2px]"
+          animate={{ x: [-20, 20], y: [-20, 20], scale: [1, 1.1, 1] }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
         />
-        <motion.img 
-          src="/assets/cap.png" 
-          alt="3D Graduation Cap"
-          className="absolute bottom-[20%] left-[12%] w-48 h-auto opacity-70 rotate-[10deg] drop-shadow-xl"
-          initial={{ y: -15, rotate: 15 }}
-          animate={{ y: 15, rotate: 5 }}
-          transition={{ duration: 5, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut', delay: 1 }}
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-40 h-40 border border-primary/5 rotate-12"
+          animate={{ rotate: [12, 32, 12], y: [0, -30, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
         />
-        <motion.img 
-          src="/assets/laptop.png" 
-          alt="3D Student Laptop"
-          className="absolute top-[18%] right-[10%] w-60 h-auto opacity-80 rotate-[12deg] drop-shadow-2xl"
-          initial={{ y: -25, rotate: 8 }}
-          animate={{ y: 25, rotate: 16 }}
-          transition={{ duration: 7, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut', delay: 0.5 }}
-        />
+        <div className="absolute top-1/3 right-[15%] w-20 h-20 bg-secondary/5 rounded-3xl blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/3 left-[10%] w-24 h-24 bg-primary/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+        
+        {/* Layered Cross-Hatch Pattern */}
+        <div className="absolute inset-0 geometric-pattern opacity-[0.04]"></div>
       </div>
 
-      {/* 2D Geometric Elements */}
-      <div className="absolute top-[10%] left-[20%] w-12 h-12 border-2 border-secondary/10 rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[25%] right-[22%] w-16 h-16 border border-primary/5 rounded-3xl rotate-45 animate-bounce" style={{ animationDuration: '6s' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-accent/20 rounded-full animate-ping"></div>
-
-      <div className="max-w-5xl mx-auto px-8 relative z-10 text-center">
+      <div className="max-w-6xl mx-auto text-center relative z-10 w-full">
         <FadeUp>
-          <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-[11px] font-bold tracking-[0.2em] uppercase mb-8 border border-primary/10 shadow-sm transition-all hover:bg-primary hover:text-white">
-            <span className="material-symbols-outlined text-sm">verified</span>
-            Unified Academic Intelligence
+          <div className="inline-flex items-center gap-3 px-3 py-1 bg-primary/5 text-primary text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase border border-primary/5 rounded-full mb-10 shadow-sm">
+             <span className="material-symbols-outlined text-[14px]">precision_manufacturing</span>
+             Next-Gen Academic Matrix
           </div>
         </FadeUp>
         
-        <FadeUp delay={0.1}>
-          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl text-primary font-bold mb-8 leading-[1.1] tracking-tight">
-            The Next Generation of <br />
-            <span className="text-secondary italic underline decoration-secondary/15 underline-offset-[12px]">Academic Tracking.</span>
+        <FadeUp delay={0.2}>
+          <h1 className="font-headline font-bold text-4xl md:text-5xl lg:text-7xl text-primary leading-[1.1] mb-10 tracking-tight">
+             Unified Academic <br />
+             <span className="italic text-secondary underline decoration-secondary/10 underline-offset-8">Precision.</span>
           </h1>
         </FadeUp>
-        
-        <FadeUp delay={0.2}>
-          <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-12 font-body leading-relaxed">
-             Empowering over 50,000 students worldwide with precision-crafted tools for GPA management, career forecasting, and data-driven success.
+
+        <FadeUp delay={0.3} className="max-w-xl mx-auto px-4">
+          <p className="text-base md:text-lg text-slate-500 mb-12 font-body leading-relaxed opacity-80">
+             The tactical command center for modern scholars. Mastering GPA trajectoy, workload metrics, and credit orchestration with absolute clarity.
           </p>
         </FadeUp>
 
-        <FadeUp delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <FadeUp delay={0.4} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/signup">
-            <Button variant="primary" className="px-8 py-3.5 text-sm shadow-xl shadow-primary/20">
-               Initialize Experience
-               <span className="material-symbols-outlined text-lg">trending_up</span>
+            <Button variant="primary" className="shadow-2xl shadow-primary/20">
+               Initialize Session
+               <span className="material-symbols-outlined text-lg">arrow_forward</span>
             </Button>
           </Link>
-          <Link href="/signin">
-            <Button variant="outline" className="px-8 py-3.5 text-sm border-slate-200 text-slate-600 hover:bg-slate-50">
-               Access Member Portal
+          <Link href="/about">
+            <Button variant="ghost">
+               Explore Protocol
             </Button>
           </Link>
         </FadeUp>
 
-        {/* Subtext Dots */}
-        <div className="mt-16 flex justify-center gap-1.5">
-           <div className="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
-           <div className="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-           <div className="w-1.5 h-1.5 rounded-full bg-primary/10"></div>
-        </div>
+        <FadeUp delay={0.6} className="mt-20 pt-16 border-t border-slate-50">
+           <p className="text-[10px] font-display font-black text-slate-300 uppercase tracking-[0.4em] mb-8">Integrated Partners</p>
+           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale group hover:opacity-80 transition-opacity">
+              <span className="font-headline font-bold text-xl text-primary">Cambridge</span>
+              <span className="font-headline font-bold text-xl text-primary">Oxford</span>
+              <span className="font-headline font-bold text-xl text-primary">Stanford</span>
+              <span className="font-headline font-bold text-xl text-primary">MIT</span>
+           </div>
+        </FadeUp>
       </div>
+
+      {/* Blueprint Visual Element */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-100 to-transparent"></div>
     </section>
   )
 }
