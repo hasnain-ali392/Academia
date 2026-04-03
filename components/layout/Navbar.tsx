@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import Button from '@/components/ui/Button'
+import { GraduationCap } from 'lucide-react'
 
 export default function Navbar() {
   const { scrollY, scrollYProgress } = useScroll()
@@ -27,8 +28,8 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
           <Link href="/" className="text-xl font-display font-bold text-primary tracking-tight flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white transition-transform group-hover:rotate-12 group-hover:scale-110 shadow-lg shadow-primary/10">
-               <span className="material-symbols-outlined text-sm font-bold">school</span>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12 group-hover:scale-110">
+               <GraduationCap className="w-5 h-5 text-primary" strokeWidth={2.5} />
             </div>
             Academia
           </Link>
@@ -43,7 +44,7 @@ export default function Navbar() {
               <motion.div key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className="text-slate-500 hover:text-primary text-[13px] font-bold transition-colors font-display tracking-tight"
+                  className="text-slate-600 hover:text-primary text-[13px] font-bold transition-colors font-display tracking-tight"
                 >
                   {item.label}
                 </Link>
@@ -56,7 +57,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
              <Link href="/signin">
-               <Button variant="ghost" className="text-slate-600 text-[13px] px-4 py-2 hover:bg-slate-50">
+               <Button variant="outline" className="text-[13px] px-4 py-2">
                  Sign In
                </Button>
              </Link>

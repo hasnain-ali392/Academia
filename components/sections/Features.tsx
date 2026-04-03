@@ -2,31 +2,32 @@
 import StaggerGroup, { staggerItem } from '@/components/motion/StaggerGroup'
 import { motion } from 'framer-motion'
 import FadeUp from '@/components/motion/FadeUp'
+import { Calculator, Brain, ClipboardCheck, BarChart3, MoveRight } from 'lucide-react'
 
 export default function Features() {
   const features = [
     {
       title: 'GPA/CGPA Tool',
       desc: 'Calculate and track your academic performance with pinpoint accuracy across multiple semesters.',
-      icon: 'calculate',
+      icon: <Calculator className="w-6 h-6" />,
       color: 'bg-primary'
     },
     {
       title: 'AI Guidance',
       desc: 'Personalized career paths and course recommendations based on your unique academic data.',
-      icon: 'psychology',
+      icon: <Brain className="w-6 h-6" />,
       color: 'bg-secondary'
     },
     {
       title: 'Result Checking',
       desc: 'Instant access to verified examination results with detailed breakdown and performance metrics.',
-      icon: 'rule',
+      icon: <ClipboardCheck className="w-6 h-6" />,
       color: 'bg-accent/40 text-primary'
     },
     {
       title: 'Performance Stats',
       desc: 'Visualize your progress through interactive charts and historical comparison data points.',
-      icon: 'query_stats',
+      icon: <BarChart3 className="w-6 h-6" />,
       color: 'bg-slate-100 text-primary'
     }
   ]
@@ -44,7 +45,7 @@ export default function Features() {
             <h2 className="font-headline text-3xl md:text-4xl text-primary font-bold mb-4 tracking-tight">The Pillars of Academia</h2>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <p className="text-slate-400 max-w-xl mx-auto font-body text-[15px] leading-relaxed">
+            <p className="text-slate-500 max-w-xl mx-auto font-body text-[15px] leading-relaxed">
               Modern solutions for modern students, integrated into one seamless platform.
             </p>
           </FadeUp>
@@ -65,17 +66,17 @@ export default function Features() {
               <motion.div 
                 className={`w-12 h-12 rounded-lg ${feature.color} text-white flex items-center justify-center mb-6 shadow-md shadow-primary/5 transition-transform group-hover:scale-110 group-hover:rotate-12`}
               >
-                <span className="material-symbols-outlined text-[28px]">{feature.icon}</span>
+                {feature.icon}
               </motion.div>
               <h3 className="font-headline font-bold text-primary text-lg mb-3 tracking-tight group-hover:text-secondary transition-colors">{feature.title}</h3>
-              <p className="text-slate-500 text-[13px] mb-6 leading-relaxed min-h-[64px] font-body opacity-80">
+              <p className="text-slate-600 text-[13px] mb-6 leading-relaxed min-h-[64px] font-body">
                 {feature.desc}
               </p>
               <motion.div 
-                className="flex items-center gap-2 text-secondary font-display font-bold text-[11px] tracking-[0.1em] uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0"
+                className="flex items-center gap-2 text-secondary font-display font-bold text-[11px] tracking-[0.1em] uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0 whitespace-nowrap"
               >
                 Explore Tool
-                <span className="material-symbols-outlined text-xs">trending_flat</span>
+                <MoveRight className="w-4 h-4" />
               </motion.div>
             </motion.div>
           ))}

@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer'
 import FadeUp from '@/components/motion/FadeUp'
 import Button from '@/components/ui/Button'
 import { motion } from 'framer-motion'
+import { ShieldCheck, BarChart3, Sparkles } from 'lucide-react'
 
 export default function AboutPage() {
   return (
@@ -36,7 +37,7 @@ export default function AboutPage() {
               </h1>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto mb-10 font-body leading-relaxed opacity-90">
+              <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto mb-10 font-body leading-relaxed">
                 Precision-engineered tools designed to unify metrics, trajectory, and success across the global education matrix.
               </p>
             </FadeUp>
@@ -73,38 +74,38 @@ export default function AboutPage() {
             </FadeUp>
             
             <div className="space-y-8">
-              <FadeUp>
-                 <div className="inline-flex items-center gap-3 px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-bold tracking-[0.3em] uppercase border border-secondary/10 rounded-full">
-                    <span className="material-symbols-outlined text-[14px]">verified</span>
-                    Strategic Protocol
-                 </div>
-              </FadeUp>
+               <FadeUp>
+                  <div className="inline-flex items-center gap-3 px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-bold tracking-[0.3em] uppercase border border-secondary/10 rounded-full">
+                     <ShieldCheck className="w-4 h-4" />
+                     Strategic Protocol
+                  </div>
+               </FadeUp>
               <FadeUp delay={0.2}>
                  <h2 className="font-headline text-3xl md:text-4xl text-primary font-bold leading-tight tracking-tight">Academic Achievement, <br />Quantified with Discipline.</h2>
               </FadeUp>
               <FadeUp delay={0.3}>
-                 <p className="text-sm text-slate-500 leading-relaxed font-body opacity-90">
+                 <p className="text-sm text-slate-600 leading-relaxed font-body">
                    Our protocol establishes absolute clarity in the academic landscape. By providing students with unified metrics — from GPA tracking to AI-driven trajectory modeling — we empower an elite level of academic command.
                  </p>
               </FadeUp>
               <div className="grid grid-cols-2 gap-6 pt-4">
-                 <FadeUp delay={0.4} className="flex gap-4 group">
-                    <div className="w-9 h-9 rounded-lg bg-secondary/5 border border-secondary/10 flex items-center justify-center text-secondary flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-all">
-                       <span className="material-symbols-outlined text-lg">analytics</span>
-                    </div>
-                    <div>
-                       <h4 className="font-headline font-bold text-primary text-[13px]">Integrity Model</h4>
-                       <p className="text-[10px] text-slate-400 font-body uppercase tracking-widest mt-1">Errorless sync.</p>
-                    </div>
+                  <FadeUp delay={0.4} className="flex gap-4 group">
+                     <div className="w-9 h-9 rounded-lg bg-secondary/5 border border-secondary/10 flex items-center justify-center text-secondary flex-shrink-0 group-hover:bg-secondary group-hover:text-white transition-all">
+                        <BarChart3 className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <h4 className="font-headline font-bold text-primary text-[13px]">Integrity Model</h4>
+                        <p className="text-[10px] text-slate-500 font-body uppercase tracking-widest mt-1">Errorless sync.</p>
+                     </div>
                  </FadeUp>
-                 <FadeUp delay={0.5} className="flex gap-4 group">
-                    <div className="w-9 h-9 rounded-lg bg-primary/5 border border-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
-                       <span className="material-symbols-outlined text-lg">auto_awesome</span>
-                    </div>
-                    <div>
-                       <h4 className="font-headline font-bold text-primary text-[13px]">Smart Insights</h4>
-                       <p className="text-[10px] text-slate-400 font-body uppercase tracking-widest mt-1">Predictive AI.</p>
-                    </div>
+                  <FadeUp delay={0.5} className="flex gap-4 group">
+                     <div className="w-9 h-9 rounded-lg bg-primary/5 border border-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-white transition-all">
+                        <Sparkles className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <h4 className="font-headline font-bold text-primary text-[13px]">Smart Insights</h4>
+                        <p className="text-[10px] text-slate-500 font-body uppercase tracking-widest mt-1">Predictive AI.</p>
+                     </div>
                  </FadeUp>
               </div>
             </div>

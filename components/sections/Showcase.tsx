@@ -2,13 +2,14 @@
 import FadeUp from '@/components/motion/FadeUp'
 import CountUp from '@/components/motion/CountUp'
 import { motion } from 'framer-motion'
+import { ShieldCheck, LineChart, RefreshCcw, Target, BarChart3 } from 'lucide-react'
 
 export default function Showcase() {
   const benefits = [
-    { title: 'Absolute Precision', desc: 'Validated academic algorithms ensure flawless integrity for your GPA.', icon: 'verified' },
-    { title: 'Predictive Modeling', desc: 'Project future semester outcomes to define required study goals.', icon: 'insights' },
-    { title: 'Rapid Sync', desc: 'Inject transcript data via instant portal sync or secured manual entry.', icon: 'sync' },
-    { title: 'Goal Oriented', desc: 'Iterative interface designed purely for student achievement rates.', icon: 'target' }
+    { title: 'Absolute Precision', desc: 'Validated academic algorithms ensure flawless integrity for your GPA.', icon: <ShieldCheck className="w-5 h-5" /> },
+    { title: 'Predictive Modeling', desc: 'Project future semester outcomes to define required study goals.', icon: <LineChart className="w-5 h-5" /> },
+    { title: 'Rapid Sync', desc: 'Inject transcript data via instant portal sync or secured manual entry.', icon: <RefreshCcw className="w-5 h-5" /> },
+    { title: 'Goal Oriented', desc: 'Iterative interface designed purely for student achievement rates.', icon: <Target className="w-5 h-5" /> }
   ]
 
   return (
@@ -30,11 +31,11 @@ export default function Showcase() {
                 <FadeUp key={idx} delay={idx * 0.1}>
                   <div className="flex flex-col gap-4 group">
                     <div className="w-10 h-10 rounded-lg bg-white border border-slate-100 flex items-center justify-center text-secondary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
-                      <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
+                      {item.icon}
                     </div>
                     <div>
                       <h5 className="font-headline font-bold text-primary text-base tracking-tight mb-2">{item.title}</h5>
-                      <p className="text-slate-500 text-[13px] leading-relaxed font-body opacity-80">{item.desc}</p>
+                      <p className="text-slate-600 text-[13px] leading-relaxed font-body">{item.desc}</p>
                     </div>
                   </div>
                 </FadeUp>
@@ -52,7 +53,7 @@ export default function Showcase() {
               <div className="flex justify-between items-center mb-10 border-b border-slate-100 pb-6">
                 <div className="flex items-center gap-3">
                    <div className="w-8 h-8 md:w-10 md:h-10 bg-primary/5 rounded-full flex items-center justify-center text-primary">
-                      <span className="material-symbols-outlined text-xl">analytics</span>
+                      <BarChart3 className="w-5 h-5" />
                    </div>
                    <h4 className="font-headline font-bold text-primary text-lg md:text-xl">Academic Pulse</h4>
                 </div>
@@ -76,7 +77,7 @@ export default function Showcase() {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
                     <span className="text-4xl font-headline font-black text-primary"><CountUp to={3} duration={2}/>.85</span>
-                    <span className="text-[9px] text-slate-400 mt-1 font-bold tracking-[0.1em] uppercase">Target Grade</span>
+                    <span className="text-[9px] text-slate-500 mt-1 font-bold tracking-[0.1em] uppercase">Target Grade</span>
                   </div>
                 </div>
                 
@@ -88,7 +89,7 @@ export default function Showcase() {
                     { label: 'Year 03', val: 3.85, pct: 85 }
                   ].map((bar, i) => (
                     <div key={i} className="space-y-2">
-                      <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                      <div className="flex justify-between text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                         <span>{bar.label}</span>
                         <span className="text-primary">{bar.val}</span>
                       </div>

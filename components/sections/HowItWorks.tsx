@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
 import FadeUp from '@/components/motion/FadeUp'
+import { FileText, Sparkles, Rocket } from 'lucide-react'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -35,9 +36,9 @@ export default function HowItWorks() {
   }, [])
 
   const steps = [
-    { num: '01', title: 'Data Injection', desc: 'Securely provide your academic transcript and semester data points into our compute matrix.', icon: 'description' },
-    { num: '02', title: 'Precision Analysis', desc: 'Our quantitative models process your data with zero error tolerance for absolute accuracy.', icon: 'auto_awesome' },
-    { num: '03', title: 'Extract Insights', desc: 'Receive crystal-clear trajectory maps and predictive performance deliverables for your career.', icon: 'rocket_launch' },
+    { num: '01', title: 'Data Injection', desc: 'Securely provide your academic transcript and semester data points into our compute matrix.', icon: <FileText className="w-6 h-6" /> },
+    { num: '02', title: 'Precision Analysis', desc: 'Our quantitative models process your data with zero error tolerance for absolute accuracy.', icon: <Sparkles className="w-6 h-6" /> },
+    { num: '03', title: 'Extract Insights', desc: 'Receive crystal-clear trajectory maps and predictive performance deliverables for your career.', icon: <Rocket className="w-6 h-6" /> },
   ]
 
   return (
@@ -75,10 +76,12 @@ export default function HowItWorks() {
                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-secondary text-white font-body text-[10px] flex items-center justify-center font-bold shadow-md">
                      {step.num}
                    </div>
-                   <span className="material-symbols-outlined text-2xl text-secondary">{step.icon}</span>
+                   <div className="text-secondary">
+                      {step.icon}
+                   </div>
                 </div>
                 <h4 className="font-headline font-bold text-primary text-xl mb-3 tracking-tight group-hover:text-secondary transition-colors">{step.title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed font-body px-4 opacity-80 group-hover:opacity-100 transition-opacity">{step.desc}</p>
+                <p className="text-slate-500 text-sm leading-relaxed font-body px-4 group-hover:opacity-100 transition-opacity">{step.desc}</p>
               </FadeUp>
             ))}
           </div>

@@ -9,9 +9,9 @@ const config: Config = {
     extend: {
       colors: {
         'primary': '#141E30',
-        'secondary': '#35577D',
-        'accent': '#A8BFCF',
-        'tertiary': '#999999',
+        'secondary': '#224061',
+        'accent': '#7A9CB5',
+        'tertiary': '#666666',
         'neutral': '#ffffff',
       },
       fontFamily: {
