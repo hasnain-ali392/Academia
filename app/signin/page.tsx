@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import FadeUp from '@/components/motion/FadeUp'
 import Button from '@/components/ui/Button'
-import { ArrowLeft, GraduationCap, Mail, Lock, ArrowRight } from 'lucide-react'
+import { ArrowLeft, GraduationCap, Mail, Lock, ArrowRight, Calculator, TrendingUp, School } from 'lucide-react'
 
 export default function SignInPage() {
   return (
@@ -15,41 +15,57 @@ export default function SignInPage() {
       
       {/* Left Column: Visual/Marketing */}
       <div className="hidden md:flex flex-col justify-between p-12 bg-primary relative overflow-hidden text-center md:text-left">
-        <div className="absolute inset-0 opacity-[0.05] bg-grid-pattern"></div>
-        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"></div>
+        {/* Isometric Pattern */}
+        <div className="absolute inset-0 pattern-isometric-cubes opacity-40"></div>
+        
+        {/* Atmospheric Lighting */}
+        <div className="absolute top-20 right-10 w-96 h-96 bg-secondary opacity-30 blur-[100px] rounded-full"></div>
+        <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-primary border-2 border-secondary/20 rounded-[3rem] rotate-12 blur-sm"></div>
         
         <div className="relative z-10 space-y-20">
           <div className="pt-10">
-            <span className="text-2xl font-display font-bold text-white tracking-tight flex items-center gap-2 group w-fit">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform">
-                 <GraduationCap className="w-6 h-6 text-white" strokeWidth={2.5} />
-              </div>
+            <span className="text-2xl font-display font-bold text-white tracking-tighter flex items-center gap-2 group w-fit">
               Academia
             </span>
           </div>
 
           <div className="max-w-sm mx-auto md:mx-0">
             <FadeUp>
-              <h2 className="font-headline text-4xl text-white font-bold mb-6 tracking-tight leading-tight italic">
-                Welcome Back <br />to Precision.
+              <h2 className="font-headline text-5xl text-white font-bold mb-6 tracking-tight leading-tight italic">
+                 Welcome Back <br />to <span className="text-secondary">Precision.</span>
               </h2>
             </FadeUp>
             <FadeUp delay={0.2}>
-              <p className="text-accent/90 text-base font-body leading-relaxed mb-10">
-                Access your unified academic command center and continue your journey toward excellence.
+              <p className="text-accent/70 text-base font-body leading-relaxed mb-12">
+                 Access your unified academic command center. Track results, predict outcomes, and master your trajectory.
               </p>
             </FadeUp>
             
-            <div className="flex gap-3 justify-center md:justify-start">
-               <div className="w-10 h-1 bg-accent rounded-full"></div>
-               <div className="w-3 h-1 bg-white/10 rounded-full"></div>
-               <div className="w-3 h-1 bg-white/10 rounded-full"></div>
+            {/* Feature List */}
+            <div className="space-y-8">
+              {[
+                { icon: <Calculator className="w-5 h-5" />, title: 'GPA Calculator', desc: 'Precision tools to monitor your semester performance in real-time.' },
+                { icon: <TrendingUp className="w-5 h-5" />, title: 'CGPA Predictor', desc: 'Forecast your graduation honors with advanced projection algorithms.' },
+                { icon: <School className="w-5 h-5" />, title: 'Academic Guidance', desc: 'Personalized insights tailored to your specific course curriculum.' },
+              ].map((feature, i) => (
+                <FadeUp key={i} delay={0.3 + i * 0.1}>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-secondary/20 rounded-xl border border-secondary/10 text-secondary">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-white font-headline font-semibold text-lg">{feature.title}</h3>
+                      <p className="text-accent/50 text-sm leading-relaxed max-w-[280px]">{feature.desc}</p>
+                    </div>
+                  </div>
+                </FadeUp>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 text-white/30 text-[10px] font-display tracking-[0.2em] uppercase font-bold">
-          © 2024 Academia Platforms Inc.
+        <div className="relative z-10 text-accent/30 text-[10px] font-display tracking-[0.3em] uppercase font-bold">
+           © 2024 Academia Platform
         </div>
       </div>
 

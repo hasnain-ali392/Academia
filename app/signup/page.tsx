@@ -13,50 +13,60 @@ export default function SignUpPage() {
       </Link>
       
       {/* Decorative Left Side for Desktop */}
-      <div className="hidden lg:flex lg:w-[32%] bg-slate-50 relative overflow-hidden border-r border-slate-100 flex-col justify-center p-8">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]"></div>
-        <Link href="/" className="absolute top-6 left-6 z-50 flex items-center gap-2 text-slate-600 hover:text-primary transition-colors group">
+      <div className="hidden lg:flex lg:w-[32%] bg-primary relative overflow-hidden border-r border-slate-900/50 flex-col justify-center p-8">
+        {/* Isometric Pattern */}
+        <div className="absolute inset-0 pattern-isometric-cubes opacity-40"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary via-transparent to-transparent opacity-80"></div>
+        
+        {/* Polished Atmospheric Lighting */}
+        <div className="absolute -top-24 -left-24 w-64 h-64 bg-secondary opacity-20 blur-[100px] rounded-full"></div>
+        <div className="absolute top-1/4 -right-8 w-32 h-32 bg-secondary opacity-10 rotate-12 rounded-xl animate-float"></div>
+        <div className="absolute bottom-1/4 -left-12 w-48 h-24 bg-white/5 rotate-[-15deg] rounded-lg animate-float-slow"></div>
+
+        <Link href="/" className="absolute top-6 left-6 z-50 flex items-center gap-2 text-white/50 hover:text-white transition-colors group">
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-          <span className="font-display text-[10px] uppercase tracking-[0.2em] font-bold">Back to Home</span>
+          <span className="font-display text-[10px] uppercase tracking-[0.2em] font-bold text-white/70">Back to Home</span>
         </Link>
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
         
         <FadeUp>
-          <div className="space-y-5">
+          <div className="space-y-6">
             <div>
-               <Link href="/" className="text-xl font-display font-bold text-primary tracking-tight flex items-center gap-2 group w-fit">
-                  <div className="w-8 h-8 rounded-xl flex items-center justify-center transition-transform group-hover:rotate-12 group-hover:scale-110">
-                     <GraduationCap className="w-5 h-5 text-primary" strokeWidth={2.5} />
-                  </div>
+               <Link href="/" className="text-xl font-display font-bold text-white tracking-tighter flex items-center gap-2 group w-fit">
                   Academia
                </Link>
             </div>
             <div>
-              <h2 className="font-headline text-2xl text-primary font-bold mb-2 tracking-tight leading-tight">The Future of <br />Academic Clarity.</h2>
-              <p className="text-slate-500 font-body text-xs leading-relaxed">
+              <h2 className="font-headline text-3xl text-white font-bold mb-3 tracking-tight leading-tight italic">
+                 The Future of <br />Academic Clarity.
+              </h2>
+              <p className="text-accent/60 font-body text-sm leading-relaxed max-w-[280px]">
                  Join the elite community of students mastering their trajectory with unified data insights.
               </p>
             </div>
           </div>
           
-          <ul className="space-y-3 mt-6">
+          <ul className="space-y-8 mt-12">
               {[
-                { icon: <Calculator className="w-4 h-4" />, text: 'Universal CGPA Tracking', sub: 'Simplified grading systems.' },
-                { icon: <Sparkles className="w-4 h-4" />, text: 'AI Career Forecasting', sub: 'Predictive data insights.' },
-                { icon: <ShieldCheck className="w-4 h-4" />, text: 'Verified Results', sub: 'Direct portal sync.' }
+                { icon: <Calculator className="w-5 h-5" />, text: 'Universal CGPA Tracking', sub: 'Simplified grading systems.' },
+                { icon: <Sparkles className="w-5 h-5" />, text: 'AI Career Forecasting', sub: 'Predictive data insights.' },
+                { icon: <ShieldCheck className="w-5 h-5" />, text: 'Verified Results', sub: 'Direct portal sync.' }
               ].map((item, i) => (
-               <li key={i} className="flex gap-3 group">
-                   <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-secondary shadow-sm transition-all group-hover:bg-primary group-hover:text-white group-hover:border-primary shrink-0">
+               <li key={i} className="flex gap-4 group">
+                   <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary shrink-0 border border-secondary/10">
                       {item.icon}
                    </div>
                   <div>
-                     <h4 className="font-headline font-bold text-primary text-[12px] tracking-tight">{item.text}</h4>
-                     <p className="text-[10px] text-slate-500 font-body uppercase tracking-wider font-medium">{item.sub}</p>
+                     <h4 className="font-headline font-semibold text-white text-lg tracking-tight">{item.text}</h4>
+                     <p className="text-accent/40 text-[10px] uppercase tracking-widest font-bold mt-0.5">{item.sub}</p>
                   </div>
                </li>
              ))}
-          </ul>
-        </FadeUp>
+           </ul>
+
+           <div className="pt-16">
+             <p className="text-accent/30 font-display text-[9px] tracking-[0.3em] uppercase font-bold">Trusted by 50,000+ Students</p>
+           </div>
+         </FadeUp>
       </div>
 
       {/* Main Signup Form Container */}
