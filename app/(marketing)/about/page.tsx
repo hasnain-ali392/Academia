@@ -7,11 +7,12 @@ import Link from "next/link";
 import { ShieldCheck, Sparkles, Calculator, Brain, FileCheck, BarChart, ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
-  const aboutShapes = [
-    { type: "blob" as const, color: "bg-brand-blue/10", size: 600, top: "-10%", left: "60%", blur: true },
-    { type: "diamond" as const, color: "text-primary/5", size: 150, top: "20%", left: "5%", rotate: 15 },
-    { type: "circle" as const, color: "bg-primary/5", size: 300, top: "70%", left: "10%", blur: true },
-    { type: "square" as const, color: "text-brand-blue/5", size: 80, top: "40%", left: "80%", rotate: -25 },
+  type ShapeType = "blob" | "circle" | "diamond" | "square";
+  const aboutShapes: Array<{ type: ShapeType, color: string, size: number, top: string, left: string, blur?: boolean, rotate?: number }> = [
+    { type: "blob", color: "bg-brand-blue/10", size: 600, top: "-10%", left: "60%", blur: true },
+    { type: "diamond", color: "text-primary/5", size: 150, top: "20%", left: "5%", rotate: 15 },
+    { type: "circle", color: "bg-primary/5", size: 300, top: "70%", left: "10%", blur: true },
+    { type: "square", color: "text-brand-blue/5", size: 80, top: "40%", left: "80%", rotate: -25 },
   ];
 
   return (
@@ -123,14 +124,25 @@ export default function AboutPage() {
                 { icon: BarChart, title: "Performance Stats", desc: "Visualize your progress through interactive charts and historical comparison data points.", bg: "bg-slate-100 text-primary border border-slate-200" }
               ].map((card, i) => (
                 <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-                  <div className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_4px_20px_-4px_rgba(53,87,125,0.08)] hover:shadow-[0_20px_40px_-15px_rgba(53,87,125,0.15)] hover:-translate-y-2 transition-all duration-500 flex flex-col gap-6 group h-full relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/[0.02] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700"></div>
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] ${card.bg} shadow-lg shadow-current/10`}>
-                      <card.icon className="w-7 h-7" />
+                  <div className="p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(53,87,125,0.12)] hover:-translate-y-2 transition-all duration-500 flex flex-col gap-8 group h-full relative overflow-hidden">
+                    {/* Subtle Accent Gradient */}
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-brand-blue/[0.03] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-1000"></div>
+                    
+                    <div className={`w-16 h-16 rounded-[1.25rem] flex items-center justify-center transition-all duration-500 shadow-xl shadow-current/10 ${card.bg === 'bg-brand-blue text-white' ? 'bg-[#35577D] text-white' : card.bg}`}>
+                      <card.icon className="w-8 h-8" strokeWidth={2.2} />
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="font-bold text-2xl text-primary font-headline tracking-tight">{card.title}</h3>
-                      <p className="text-[15px] text-slate-500 leading-relaxed font-medium font-body opacity-90 group-hover:opacity-100 transition-opacity">{card.desc}</p>
+                    
+                    <div className="space-y-4">
+                      <h3 className="font-bold text-2xl text-primary font-headline tracking-tight group-hover:text-brand-blue transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-[15px] text-slate-500 leading-relaxed font-medium font-body opacity-80 group-hover:opacity-100 transition-all">
+                        {card.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-2">
+                       <div className="w-8 h-1 bg-slate-100 rounded-full group-hover:w-16 group-hover:bg-brand-blue transition-all duration-500"></div>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -140,7 +152,7 @@ export default function AboutPage() {
         </section>
 
         {/* Vision Section */}
-        <section className="py-32 bg-primary relative overflow-hidden text-center">
+        <section className="py-20 bg-primary relative overflow-hidden text-center">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(white 1.5px, transparent 1.5px)', backgroundSize: '40px 40px' }}></div>
           <div className="max-w-4xl mx-auto px-8 relative z-10 space-y-12">
             <ScrollReveal direction="up">
@@ -158,7 +170,7 @@ export default function AboutPage() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.3}>
-              <div className="pt-8">
+              <div>
                 <Link href="/signup" className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm bg-white text-primary rounded-xl font-bold hover:bg-slate-100 transition-colors active:scale-95">
                   Join the Movement
                   <ArrowRight className="w-4 h-4" />
