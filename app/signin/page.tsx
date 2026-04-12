@@ -7,7 +7,7 @@ import { ArrowLeft, GraduationCap, Mail, Lock, ArrowRight, Calculator, TrendingU
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white relative">
+    <div className="h-screen overflow-hidden grid grid-cols-1 md:grid-cols-2 bg-white relative">
       <Link href="/" className="absolute top-8 left-8 z-50 flex items-center gap-2 text-white/70 hover:text-white transition-colors group hidden md:flex">
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         <span className="font-display text-[10px] uppercase tracking-[0.2em] font-bold">Back to Home</span>

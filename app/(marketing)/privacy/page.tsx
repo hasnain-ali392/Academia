@@ -3,6 +3,7 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import GeometricBackground from "@/components/ui/GeometricBackground";
 import Link from "next/link";
+import { Info, Database, User, Activity, Lightbulb, Check, Gavel, LifeBuoy } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
   const privacyShapes = [
@@ -26,7 +27,7 @@ export default function PrivacyPolicyPage() {
                 <div className="h-[1px] w-8 bg-brand-blue/40"></div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#35577D]">Legal Documentation</span>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black text-primary tracking-tight leading-[1.05] font-display">
+              <h1 className="text-5xl md:text-7xl font-black text-primary tracking-tight leading-[1.05] font-headline">
                 Privacy <br/><span className="text-[#35577D]/90">Policy</span>
               </h1>
               <div className="flex items-center gap-5 text-slate-400 mt-2 font-body">
@@ -46,7 +47,7 @@ export default function PrivacyPolicyPage() {
                 <button 
                   key={item}
                   onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex-1 min-w-[100px] py-3 px-6 rounded-xl whitespace-nowrap text-[10px] font-extrabold uppercase tracking-widest font-display text-slate-500 hover:text-brand-blue hover:bg-brand-blue/5 transition-all"
+                  className="flex-1 min-w-[100px] py-3 px-6 rounded-xl whitespace-nowrap text-[10px] font-extrabold uppercase tracking-widest font-headline text-slate-500 hover:text-brand-blue hover:bg-brand-blue/5 transition-all"
                 >
                   {item}
                 </button>
@@ -62,10 +63,10 @@ export default function PrivacyPolicyPage() {
             <section id="overview" className="scroll-mt-48 bg-white/40 backdrop-blur-sm border border-slate-100 rounded-3xl p-10 md:p-14 shadow-xl shadow-brand-blue/[0.03]">
               <div className="flex items-center gap-5 mb-10">
                 <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue border border-brand-blue/10">
-                  <span className="material-symbols-outlined text-[28px]">info</span>
+                  <Info className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-black text-primary tracking-tight font-display">Introduction</h3>
+                  <h3 className="text-3xl font-black text-primary tracking-tight font-headline">Introduction</h3>
                   <p className="text-[13px] text-brand-blue/60 font-bold uppercase tracking-widest mt-0.5">Scope &amp; Consent</p>
                 </div>
               </div>
@@ -85,10 +86,10 @@ export default function PrivacyPolicyPage() {
             <section id="collection" className="scroll-mt-48 bg-white/40 backdrop-blur-sm border border-slate-100 rounded-3xl p-10 md:p-14 shadow-xl shadow-brand-blue/[0.03]">
               <div className="flex items-center gap-5 mb-12">
                 <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue border border-brand-blue/10">
-                  <span className="material-symbols-outlined text-[28px]">database</span>
+                  <Database className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-black text-primary tracking-tight font-display">Data Collection</h3>
+                  <h3 className="text-3xl font-black text-primary tracking-tight font-headline">Data Collection</h3>
                   <p className="text-[13px] text-brand-blue/60 font-bold uppercase tracking-widest mt-0.5">What we gather</p>
                 </div>
               </div>
@@ -96,18 +97,18 @@ export default function PrivacyPolicyPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-white/60 border border-brand-blue/10 p-8 rounded-3xl group hover:border-brand-blue/40 transition-all hover:shadow-lg hover:shadow-brand-blue/5">
                   <div className="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform border border-brand-blue/10">
-                    <span className="material-symbols-outlined text-brand-blue text-[24px]">person</span>
+                    <User className="w-6 h-6 text-brand-blue" />
                   </div>
-                  <h4 className="font-extrabold font-display text-xl mb-3 text-primary">Personal Data</h4>
+                  <h4 className="font-extrabold font-headline text-xl mb-3 text-primary">Personal Data</h4>
                   <p className="text-sm text-slate-500 leading-relaxed font-medium">
                     Includes your name, email address, school affiliation, and profile information provided during secure registration.
                   </p>
                 </div>
                 <div className="bg-white/60 border border-brand-blue/10 p-8 rounded-3xl group hover:border-brand-blue/40 transition-all hover:shadow-lg hover:shadow-brand-blue/5">
                   <div className="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform border border-brand-blue/10">
-                    <span className="material-symbols-outlined text-brand-blue text-[24px]">monitoring</span>
+                    <Activity className="w-6 h-6 text-brand-blue" />
                   </div>
-                  <h4 className="font-extrabold font-display text-xl mb-3 text-primary">Academic Analytics</h4>
+                  <h4 className="font-extrabold font-headline text-xl mb-3 text-primary">Academic Analytics</h4>
                   <p className="text-sm text-slate-500 leading-relaxed font-medium">
                     Course completion rates, quiz scores, time spent on lessons, and interaction with our intelligent educational tools.
                   </p>
@@ -122,10 +123,10 @@ export default function PrivacyPolicyPage() {
               <div className="p-10 md:p-14 relative z-10">
                 <div className="flex items-center gap-5 mb-12">
                   <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue border border-brand-blue/10">
-                    <span className="material-symbols-outlined text-[28px]">insights</span>
+                    <Lightbulb className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-black text-primary tracking-tight font-display">Use of Data</h3>
+                    <h3 className="text-3xl font-black text-primary tracking-tight font-headline">Use of Data</h3>
                     <p className="text-[13px] text-brand-blue/60 font-bold uppercase tracking-widest mt-0.5">Processing logic</p>
                   </div>
                 </div>
@@ -139,10 +140,10 @@ export default function PrivacyPolicyPage() {
                       {["Personalization", "Communication"].map((point, i) => (
                         <div key={i} className="flex items-start gap-5">
                           <div className="mt-1 w-6 h-6 rounded-full bg-brand-blue flex items-center justify-center shrink-0 shadow-lg shadow-brand-blue/20">
-                            <span className="material-symbols-outlined text-[14px] text-white font-bold">done</span>
+                            <Check className="w-4 h-4 text-white" />
                           </div>
                           <div>
-                            <h5 className="font-extrabold font-display text-primary text-lg mb-1">{point}</h5>
+                            <h5 className="font-extrabold font-headline text-primary text-lg mb-1">{point}</h5>
                             <p className="text-sm text-slate-500 font-medium leading-relaxed">Tailoring platform experience to enhance academic growth.</p>
                           </div>
                         </div>
@@ -154,6 +155,26 @@ export default function PrivacyPolicyPage() {
             </section>
           </ScrollReveal>
 
+          {/* Section: User Rights */}
+          <ScrollReveal direction="up" delay={0.2}>
+            <section id="rights" className="scroll-mt-48 bg-white/40 backdrop-blur-sm border border-slate-100 rounded-3xl p-10 md:p-14 shadow-xl shadow-brand-blue/[0.03]">
+              <div className="flex items-center gap-5 mb-10">
+                <div className="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center text-brand-blue border border-brand-blue/10">
+                  <Gavel className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-3xl font-black text-primary tracking-tight font-headline">User Rights</h3>
+                  <p className="text-[13px] text-brand-blue/60 font-bold uppercase tracking-widest mt-0.5">Your Controls</p>
+                </div>
+              </div>
+              <div className="space-y-8 text-slate-600 leading-[1.8] font-medium text-base">
+                <p>
+                  You hold complete authority over your personal information. Academia provides comprehensive tools within the Account Settings interface allowing you to export, limit, or delete your data at any time. Further inquiries regarding data portability or erasure can be processed via our privacy division.
+                </p>
+              </div>
+            </section>
+          </ScrollReveal>
+
           {/* CTA Section */}
           <ScrollReveal direction="up" distance={50}>
             <section className="pt-8">
@@ -161,12 +182,12 @@ export default function PrivacyPolicyPage() {
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(white 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }}></div>
                 <div className="relative z-10 max-w-2xl mx-auto space-y-8">
                   <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-2xl mb-4 backdrop-blur-sm">
-                    <span className="material-symbols-outlined text-[32px]">contact_support</span>
+                    <LifeBuoy className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-black font-display mb-8 tracking-tight">Questions about <br/>your privacy?</h3>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <a href="mailto:privacy@academia.com" className="w-full sm:w-auto bg-white text-brand-blue px-12 py-5 rounded-2xl font-black text-[13px] uppercase tracking-widest hover:shadow-xl hover:-translate-y-1 transition-all active:scale-95">Contact Support</a>
-                    <Link href="/help" className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white px-12 py-5 rounded-2xl font-black text-[13px] uppercase tracking-widest hover:bg-white/10 hover:border-white transition-all active:scale-95">Help Center</Link>
+                  <h3 className="text-4xl md:text-5xl font-black font-headline mb-8 tracking-tight">Questions about <br/>your privacy?</h3>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="mailto:privacy@academia.com" className="flex items-center justify-center bg-white text-brand-blue px-6 py-2.5 rounded-lg font-black text-[13px] uppercase tracking-widest hover:shadow-xl hover:-translate-y-1 transition-all active:scale-95">Contact Support</a>
+                    <Link href="/help" className="flex items-center justify-center bg-transparent border-2 border-white/30 text-white px-6 py-2.5 rounded-lg font-black text-[13px] uppercase tracking-widest hover:bg-white/10 hover:border-white transition-all active:scale-95">Help Center</Link>
                   </div>
                 </div>
               </div>

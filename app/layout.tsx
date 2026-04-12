@@ -3,8 +3,6 @@ import { Inter, Lexend, Fraunces, Public_Sans, Sora } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider'
 import PageTransition from '@/components/layout/PageTransition'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' })
@@ -28,12 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
 
-      <body className={`${inter.variable} ${lexend.variable} ${fraunces.variable} ${publicSans.variable} ${sora.variable} font-body bg-white text-primary antialiased`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${lexend.variable} ${fraunces.variable} ${publicSans.variable} ${sora.variable} font-body bg-white text-primary antialiased`}>
         <SmoothScrollProvider>
           <PageTransition>
-            <Navbar />
             {children}
-            <Footer />
           </PageTransition>
         </SmoothScrollProvider>
       </body>

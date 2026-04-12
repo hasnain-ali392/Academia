@@ -1,5 +1,5 @@
-import MarketingNavbar from "@/components/layout/MarketingNavbar";
-import MarketingFooter from "@/components/layout/MarketingFooter";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export default function MarketingLayout({
   children,
@@ -8,11 +8,11 @@ export default function MarketingLayout({
 }) {
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
-      <MarketingNavbar />
+      <Navbar />
       <main className="flex-grow">
         {children}
       </main>
-      <MarketingFooter />
+      <Footer />
     </div>
   );
 }

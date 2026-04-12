@@ -3,6 +3,7 @@
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import GeometricBackground from "@/components/ui/GeometricBackground";
 import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 export default function TermsOfServicePage() {
   const termsShapes = [
@@ -21,7 +22,7 @@ export default function TermsOfServicePage() {
           {/* Header Section */}
           <ScrollReveal direction="up">
             <header className="mb-12 text-center">
-              <h1 className="text-4xl md:text-5xl font-extrabold text-[#141E30] mb-4 tracking-tight font-display">Terms of Service</h1>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-[#141E30] mb-4 tracking-tight font-headline">Terms of Service</h1>
               <p className="text-slate-500 font-medium font-body">Last Updated: October 24, 2023</p>
             </header>
           </ScrollReveal>
@@ -64,11 +65,11 @@ export default function TermsOfServicePage() {
                 <ScrollReveal key={idx} direction="up" delay={0.1 * idx}>
                   <section className="space-y-4">
                     <div className="flex items-start gap-4">
-                      <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-xl font-display">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-xl font-headline">
                         {section.num}
                       </span>
                       <div>
-                        <h2 className="text-2xl font-bold text-[#141E30] mb-4 font-display">{section.title}</h2>
+                        <h2 className="text-2xl font-bold text-[#141E30] mb-4 font-headline">{section.title}</h2>
                         <p className="text-slate-600 leading-relaxed font-body mb-6">
                           {section.content}
                         </p>
@@ -76,7 +77,7 @@ export default function TermsOfServicePage() {
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {section.list.map((item, i) => (
                               <div key={i} className="flex items-center p-4 bg-slate-50/50 rounded-xl border border-slate-100 group hover:bg-white transition-all">
-                                <span className="material-symbols-outlined text-brand-blue mr-3 group-hover:scale-110 transition-transform">check_circle</span>
+                                <CheckCircle className="w-5 h-5 text-brand-blue mr-3 shrink-0 group-hover:scale-110 transition-transform" />
                                 <span className="text-sm font-medium font-body text-slate-700">{item}</span>
                               </div>
                             ))}
@@ -93,8 +94,8 @@ export default function TermsOfServicePage() {
                 <footer className="pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
                   <p className="text-sm text-slate-500 font-medium font-body">Questions about our terms? We&apos;re here to help.</p>
                   <div className="flex flex-wrap gap-4 justify-center">
-                    <button className="px-8 py-3 bg-brand-blue text-white rounded-xl font-bold font-display hover:bg-[#141E30] transition-all shadow-lg active:scale-95">Contact Support</button>
-                    <button className="px-8 py-3 bg-white border border-slate-200 text-[#141E30] rounded-xl font-bold font-display hover:bg-slate-50 transition-all active:scale-95">Download PDF</button>
+                    <button className="px-5 py-2.5 text-sm bg-brand-blue text-white rounded-lg font-bold font-headline hover:bg-[#141E30] transition-all shadow-lg active:scale-95">Contact Support</button>
+                    <button className="px-5 py-2.5 text-sm bg-white border border-slate-200 text-[#141E30] rounded-lg font-bold font-headline hover:bg-slate-50 transition-all active:scale-95">Download PDF</button>
                   </div>
                 </footer>
               </ScrollReveal>

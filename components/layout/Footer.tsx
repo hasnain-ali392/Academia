@@ -36,7 +36,7 @@ export default function Footer() {
             <h4 className="font-display font-bold text-primary mb-6 text-sm uppercase tracking-widest">Company</h4>
             <ul className="space-y-4 text-sm text-slate-500">
               <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="#careers" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/features" className="hover:text-primary transition-colors">Features</Link></li>
               <li><Link href="#press" className="hover:text-primary transition-colors">Press</Link></li>
               <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
@@ -45,16 +45,16 @@ export default function Footer() {
           <FadeUp delay={0.4} className="col-span-1">
             <h4 className="font-display font-bold text-primary mb-6 text-sm uppercase tracking-widest">Legal</h4>
             <ul className="space-y-4 text-sm text-slate-500">
-              <li><Link href="#privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link href="#help" className="hover:text-primary transition-colors">Help Center</Link></li>
+              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/help" className="hover:text-primary transition-colors">Help Center</Link></li>
             </ul>
           </FadeUp>
         </div>
 
         <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="font-body text-xs text-slate-600 font-medium">
-            © 2024 Academia Platform. All rights reserved.
+            © {new Date().getFullYear()} Academia Platform. All rights reserved.
           </p>
           <div className="flex gap-6">
               <a href="#" className="text-slate-500 hover:text-primary transition-colors">
