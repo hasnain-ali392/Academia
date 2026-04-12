@@ -3,6 +3,8 @@ import { Inter, Lexend, Fraunces, Public_Sans, Sora } from 'next/font/google'
 import './globals.css'
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider'
 import PageTransition from '@/components/layout/PageTransition'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const lexend = Lexend({ subsets: ['latin'], variable: '--font-lexend' })
@@ -13,6 +15,9 @@ const sora = Sora({ subsets: ['latin'], variable: '--font-sora' })
 export const metadata: Metadata = {
   title: 'Academia | Precision Academic Tools',
   description: 'Empowering students with precision-engineered tools for a seamless academic journey.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
@@ -21,12 +26,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
 
       <body className={`${inter.variable} ${lexend.variable} ${fraunces.variable} ${publicSans.variable} ${sora.variable} font-body bg-white text-primary antialiased`}>
         <SmoothScrollProvider>
           <PageTransition>
+            <Navbar />
             {children}
+            <Footer />
           </PageTransition>
         </SmoothScrollProvider>
       </body>
