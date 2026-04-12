@@ -24,16 +24,16 @@ export default function PrivacyPolicyPage() {
           <ScrollReveal direction="up">
             <div className="flex flex-col items-start gap-6">
               <div className="flex items-center gap-3">
-                <div className="h-[1px] w-8 bg-brand-blue/40"></div>
+                <div className="h-[1px] bg-brand-blue/40"></div>
                 <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#35577D]">Legal Documentation</span>
               </div>
               <h1 className="text-5xl md:text-7xl font-black text-primary tracking-tight leading-[1.05] font-headline">
-                Privacy <br/><span className="text-[#35577D]/90">Policy</span>
+                Privacy <span className="text-[#35577D]/90">Policy</span>
               </h1>
               <div className="flex items-center gap-5 text-slate-400 mt-2 font-body">
-                <p className="text-[13px] font-medium">Last updated: <span className="text-primary font-bold">October 24, 2023</span></p>
+                <p className="text-[13px] font-medium">Last updated: <span className="text-primary font-bold">{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span></p>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#35577D]/20"></span>
-                <p className="text-[13px] font-bold tracking-widest text-[#35577D]/60">V.2.4.0</p>
+                <p className="text-[13px] font-bold tracking-widest text-[#35577D]/60">V.1.0</p>
               </div>
             </div>
           </ScrollReveal>

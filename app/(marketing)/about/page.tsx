@@ -123,12 +123,15 @@ export default function AboutPage() {
                 { icon: BarChart, title: "Performance Stats", desc: "Visualize your progress through interactive charts and historical comparison data points.", bg: "bg-slate-100 text-primary border border-slate-200" }
               ].map((card, i) => (
                 <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-                  <div className="p-8 rounded-[1.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col gap-4 group h-full">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 ${card.bg}`}>
-                      <card.icon className="w-6 h-6" />
+                  <div className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_4px_20px_-4px_rgba(53,87,125,0.08)] hover:shadow-[0_20px_40px_-15px_rgba(53,87,125,0.15)] hover:-translate-y-2 transition-all duration-500 flex flex-col gap-6 group h-full relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/[0.02] rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700"></div>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] ${card.bg} shadow-lg shadow-current/10`}>
+                      <card.icon className="w-7 h-7" />
                     </div>
-                    <h3 className="font-bold text-xl text-primary font-headline">{card.title}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed font-medium">{card.desc}</p>
+                    <div className="space-y-3">
+                      <h3 className="font-bold text-2xl text-primary font-headline tracking-tight">{card.title}</h3>
+                      <p className="text-[15px] text-slate-500 leading-relaxed font-medium font-body opacity-90 group-hover:opacity-100 transition-opacity">{card.desc}</p>
+                    </div>
                   </div>
                 </ScrollReveal>
               ))}
@@ -142,7 +145,7 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto px-8 relative z-10 space-y-12">
             <ScrollReveal direction="up">
               <span className="text-[11px] font-black uppercase tracking-[0.5em] text-white/40 mb-8 block">Our Vision</span>
-              <blockquote className="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight font-headline italic">
+              <blockquote className="text-3xl md:text-4xl font-black text-white leading-tight tracking-tight font-headline italic">
                 &ldquo;To become the global standard for academic data management, where every student possesses the clarity to navigate their future with absolute confidence.&rdquo;
               </blockquote>
             </ScrollReveal>

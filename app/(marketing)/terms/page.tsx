@@ -23,7 +23,7 @@ export default function TermsOfServicePage() {
           <ScrollReveal direction="up">
             <header className="mb-12 text-center">
               <h1 className="text-4xl md:text-5xl font-extrabold text-[#141E30] mb-4 tracking-tight font-headline">Terms of Service</h1>
-              <p className="text-slate-500 font-medium font-body">Last Updated: October 24, 2023</p>
+              <p className="text-slate-500 font-medium font-body">Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
             </header>
           </ScrollReveal>
 

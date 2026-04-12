@@ -13,6 +13,7 @@ const config: Config = {
         'accent': '#7A9CB5',
         'tertiary': '#666666',
         'neutral': '#ffffff',
+        'brand-blue': '#35577D',
       },
       fontFamily: {
         body: ['var(--font-public-sans)', 'sans-serif'],
