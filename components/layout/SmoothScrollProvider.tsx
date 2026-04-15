@@ -25,7 +25,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 
     return () => {
       lenis.destroy()
-      gsap.ticker.remove((time) => lenis.raf(time * 1000))
+      gsap.ticker.remove((time) => lenis.raf(time * 100))
     }
   }, [])
 

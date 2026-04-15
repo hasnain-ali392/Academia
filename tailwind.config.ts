@@ -22,6 +22,15 @@ const config: Config = {
         label: ['var(--font-sora)', 'sans-serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) rotate(0deg)' },
+          '50%': { transform: 'translate3d(0, -20px, 0) rotate(5deg)' },
+        }
+      },
+      animation: {
+        float: 'float 8s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
